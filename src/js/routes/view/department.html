@@ -1,0 +1,21 @@
+<div class="oj-hybrid-padding">
+    <h2 data-bind="text: heading"></h2>
+    <hr>
+    <div class="oj-panel oj-panel-alt1 oj-flex">
+        <div class="oj-flex-item">
+            <div class="oj-flex-bar-middle">
+                <oj-button id="btn1" on-oj-action="[[departmentFetch]]" class="oj-button-confirm">Fetch</oj-button>
+                <div class="oj-margin"></div>
+                <oj-switch id="switch1" value="{{switchMode}}"></oj-switch>
+                <oj-bind-text value="{{switchMode() ? 'Single Selection' : 'Multiple Selection'}}"></oj-bind-text>
+                <div class="oj-margin"></div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <oj-table id="depts1" aria-label="Departments" style="width: 100%" data="[[pagingDataSource]]" columns="[[DepartmentColumns]]"
+              selection-mode="{{selectionType}}" on-selection-changed="[[onRowSelection]]"/>
+    <oj-paging-control id="deptpage1" data="[[pagingDataSource]]" page-size="5" slot="bottom"/>
+    <hr>
+    <oj-bind-if test="[[selectionData]]"><span>Selected rows: <oj-bind-text value="[[selectionData]]"></oj-bind-text></span></oj-bind-if>
+</div>
