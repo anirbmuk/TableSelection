@@ -50,9 +50,18 @@ require(['ojs/ojcore', 'knockout', 'appController', 'jquery', 'ojs/ojknockout', 
     
     $(function() {
         
+      console.log('module config', oj.ModuleBinding.defaults);
+        
+      // Paths
       oj.ModuleBinding.defaults.viewPath = 'text!routes/view/';
       oj.ModuleBinding.defaults.modelPath = 'routes/model/';
-      oj.ModuleBinding.defaults.activatedHandled = 'connected';
+      
+      // Lifecycle hooks
+      oj.ModuleBinding.defaults.initializeMethod = 'init';
+      oj.ModuleBinding.defaults.activatedHandler = 'connected';
+      oj.ModuleBinding.defaults.deactivatedHandler = 'disconnected';
+      
+      console.log('module config', oj.ModuleBinding.defaults);
       
       function init() {
         // Bind your ViewModel for the content of the whole page body.

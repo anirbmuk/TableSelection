@@ -8,7 +8,7 @@ define(function() {
                 if (selectedRowsFromEvent.length === 0) {
                     return allPromises;
                 }
-                console.log('selectedRowsFromEvent', selectedRowsFromEvent);
+
                 selectedRowsFromEvent.forEach(currentRow => {
                     const startIndex = currentRow['startIndex']['row'];
                     const endIndex = currentRow['endIndex']['row'];
